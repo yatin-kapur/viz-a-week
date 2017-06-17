@@ -73,9 +73,9 @@ geo_regions = pd.merge(final_df, filtered_df, left_on='Country Name', right_on='
 del geo_regions['name']
 
 # adding the statistic which needs to be plotted on the y axis
-geo_regions['Health Expenditure per Year of Life Expectancy (2002-2014)'] = geo_regions['Health Expenditure']/geo_regions['Life Expectancy']
+geo_regions['Health Expenditure (% of GDP) per Year of Life Expectancy (2002-2014)'] = geo_regions['Health Expenditure']/geo_regions['Life Expectancy']
 
 # plotting graph
-sns.swarmplot(data=geo_regions, x='Year', y='Health Expenditure per Year of Life Expectancy (2002-2014)', palette='viridis', hue='region', split=True)
+sns.swarmplot(data=geo_regions, x='Year', y='Health Expenditure (% of GDP) per Year of Life Expectancy (2002-2014)', palette='viridis', hue='region', split=True)
 
 sns.plt.show()
