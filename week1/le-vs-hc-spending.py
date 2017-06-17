@@ -25,6 +25,7 @@ life_expectancy = life_expectancy.stack()
 life_expectancy = pd.DataFrame(life_expectancy)
 life_expectancy = life_expectancy.reset_index()
 life_expectancy = life_expectancy.rename(columns = {'level_1':'Year', 0:'Life Expectancy'})
+life_expectancy['Year'] = life_expectancy['Year'].apply(np.int64) # making year values integers
 
 # reading data for spending on healthcare
 health_spending = pd.read_csv("hc-exp.csv")
@@ -49,4 +50,9 @@ for i in range(len(life_expectancy.loc[:, 'Year'])):
         life_expectancy.loc[i, 'Year'] = np.nan
 
 life_expectancy = life_expectancy.dropna()
-life_expectancy = life_expectancy['Year'].apply(np.int64)
+life_expectancy['Year'] = life_expectancy['Year'].apply(np.int64)
+
+# merge
+final_df = pd.merge(health_spending, life_expectancy, on=['Country Name', 'Year'])
+
+print(final_df.head())
