@@ -4,6 +4,8 @@ import pandas as pd
 import numpy as np
 import matplotlib as plt
 import seaborn as sns
+import urllib
+import json
 
 # reading data into life expetancy dataframe
 life_expectancy = pd.read_csv("life-expectancy.csv")
@@ -55,4 +57,25 @@ life_expectancy['Year'] = life_expectancy['Year'].apply(np.int64)
 # merge
 final_df = pd.merge(health_spending, life_expectancy, on=['Country Name', 'Year'])
 
-print(final_df.head())
+# getting information of countries and their regions from the API
+geo = urllib.request.urlopen("https://restcountries.eu/rest/v1/all").read()
+geo_list = json.loads(geo)
+
+# filtering only the country name and the subregion and making it a dataframe
+filtered_list =[]
+for countries in geo_list:
+    filtered_list.append({k:v for (k,v) in countries.items() if k in ['name', 'region', 'subregion']})
+
+filtered_df = pd.DataFrame(filtered_list)
+
+# merging tables for the subregions and regions
+geo_regions = pd.merge(final_df, filtered_df, left_on='Country Name', right_on='name')
+del geo_regions['name']
+
+# adding the statistic which needs to be plotted on the y axis
+geo_regions['Health Expenditure per Year of Life Expectancy (2002-2014)'] = geo_regions['Health Expenditure']/geo_regions['Life Expectancy']
+
+# plotting graph
+sns.swarmplot(data=geo_regions, x='Year', y='Health Expenditure per Year of Life Expectancy (2002-2014)', palette='viridis', hue='region', split=True)
+
+sns.plt.show()
