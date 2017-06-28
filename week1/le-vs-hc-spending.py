@@ -38,14 +38,14 @@ health_spending = health_spending.rename(columns = {'Entity': 'Country Name'})
 
 # removing elements that are not in the years range
 for i in range(len(health_spending.loc[:, 'Year'])):
-    if health_spending.loc[i, 'Year'] < 2002 and health_spending.loc[i, 'Year'] > 2014:
+    if health_spending.loc[i, 'Year'] < 2002 and health_spending.loc[i, 'Year'] > 2013:
         health_spending.loc[i, 'Year'] = np.nan
 
 health_spending = health_spending.dropna()
 health_spending['Year'] = health_spending['Year'].apply(np.int64)
 
 for i in range(len(life_expectancy.loc[:, 'Year'])):
-    if life_expectancy.loc[i, 'Year'] < 2002 and life_expectancy.loc[i, 'Year'] > 2014:
+    if life_expectancy.loc[i, 'Year'] < 2002 and life_expectancy.loc[i, 'Year'] > 2013:
         life_expectancy.loc[i, 'Year'] = np.nan
 
 life_expectancy = life_expectancy.dropna()
