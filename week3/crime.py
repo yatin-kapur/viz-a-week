@@ -152,7 +152,7 @@ for state in not_in_crime:
     sent += 1
     ax.add_patch(fill)
 
-plt.title('Percentage of Crime in Universities & Colleges for States (2013)')
+plt.title('Percentage of Hate Crimes in Universities & Colleges for States (2013)')
 plt.annotate('redder: higher portion of state crime in commited in schools',
              xy=(0.1,0), xycoords='axes fraction')
 plt.annotate('grey: no recorded crimes in schools', xy=(0.1, -0.05),
