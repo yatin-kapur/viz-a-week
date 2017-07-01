@@ -3,7 +3,8 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
+from mpl_toolkits.basemap import Basemap
+from matplotlib.patches import Polygon
 
 # reading crime data
 crime = pd.read_csv("crime-data.csv")
@@ -16,7 +17,8 @@ crime.loc[:, '3rd quarter'] = np.int64(crime.loc[:, '3rd quarter'])
 crime.loc[:, '4th quarter'] = np.int64(crime.loc[:, '4th quarter'])
 
 # adding modifying columns
-crime['Total Crime'] = crime['1st quarter'] + crime['2nd quarter'] + crime['3rd quarter'] + crime['4th quarter']
+crime['Total Crime'] = crime['1st quarter'] + crime['2nd quarter'] \
+                        + crime['3rd quarter'] + crime['4th quarter']
 crime = crime[['State', 'Agency type', 'Agency name', 'Population', 'Total Crime']]
 
 # removing states without universities or colleges
@@ -36,7 +38,8 @@ crime_uc = crime_uc.groupby('State').sum()
 crime_total = crime_total.reset_index()
 crime_uc = crime_uc.reset_index()
 
-crime = pd.merge(crime_total, crime_uc, on='State', suffixes=[' in State', ' in Schools'])
+crime = pd.merge(crime_total, crime_uc, on='State',
+                 suffixes=[' in State', ' in Schools'])
 
 # code list of states
 state_dict = {
@@ -103,3 +106,56 @@ for i in range(len(crime.loc[:, 'State'])):
     if '_' in crime.loc[i, 'State']:
         crime.loc[i, 'State'] = crime.loc[i, 'State'].replace("_", " ")
 
+# creating map
+m = Basemap(projection='mill',llcrnrlat=20,urcrnrlat=50,
+            llcrnrlon=-130,urcrnrlon=-60,resolution='f')
+
+# drawing lines and making them all white
+m.drawcoastlines(color='#FFFFFF')
+m.drawstates(color='#FFFFFF')
+m.fillcontinents(color='#FFFFFF', lake_color='#FFFFFF')
+m.drawmapboundary(fill_color='#FFFFFF', color='#FFFFFF')
+
+# making states for the usa bordered so that they are visible
+m.readshapefile('st99_d00', name='states', drawbounds=True, color='#FFFFFF')
+
+# list of state names
+state_names = []
+for shape_dict in m.states_info:
+    state_names.append(shape_dict['NAME'])
+
+# list of states in table
+list_of_states = crime['State']
+
+# create axis to plot on
+ax = plt.gca()
+
+# looping through states and plotting according to school crime ratio
+sent = 0
+for state in list_of_states:
+    seg = m.states[state_names.index(state)]
+    fill = Polygon(seg, facecolor='#e60000', edgecolor='#FFFFFF',
+                   alpha=crime.loc[sent, 'Percentage in Schools'] * 0.05)
+    sent += 1
+    ax.add_patch(fill)
+
+# states with an undefined percentage
+not_in_crime = [state for state in state_names if state not in list(list_of_states)]
+not_in_crime = list(set(list(not_in_crime)))
+not_in_crime
+
+# looping through states and making them grey bc of no crime
+sent = 0
+for state in not_in_crime:
+    seg = m.states[state_names.index(state)]
+    fill = Polygon(seg, facecolor='#e6e6e6', edgecolor='#FFFFFF')
+    sent += 1
+    ax.add_patch(fill)
+
+plt.title('Percentage of Crime in Universities & Colleges for States (2013)')
+plt.annotate('redder: higher portion of state crime in commited in schools',
+             xy=(0.1,0), xycoords='axes fraction')
+plt.annotate('grey: no recorded crimes in schools', xy=(0.1, -0.05),
+             xycoords='axes fraction')
+
+plt.show()
