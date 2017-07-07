@@ -1,0 +1,108 @@
+Entity,Year,Country code,Corruption Perception Rating
+Afghanistan,2013,AFG,4.1
+Albania,2013,ALB,4.2
+Algeria,2013,DZA,4.6
+Argentina,2013,ARG,4.5
+Armenia,2013,ARM,4.4
+Australia,2013,AUS,3.6
+Azerbaijan,2013,AZE,3.6
+Bangladesh,2013,BGD,4.2
+Belgium,2013,BEL,3.9
+Bolivia,2013,BOL,4.3
+Bosnia and Herzegovina,2013,BIH,4.4
+Brazil,2013,BRA,4.6
+Bulgaria,2013,BGR,4.3
+Burundi,2013,BDI,4.1
+Cambodia,2013,KHM,3.8
+Cameroon,2013,CMR,4.5
+Canada,2013,CAN,3.7
+Chile,2013,CHL,4.3
+Colombia,2013,COL,4.4
+Croatia,2013,HRV,4.3
+Cyprus,2013,CYP,4.2
+Czech Republic,2013,CZE,4.4
+Democratic Republic of Congo,2013,COD,4.3
+Denmark,2013,DNK,2.2
+Egypt,2013,EGY,4.1
+El Salvador,2013,SLV,4.3
+Estonia,2013,EST,3.7
+Ethiopia,2013,ETH,3.1
+Fiji,2013,FJI,4.1
+Finland,2013,FIN,2.9
+France,2013,FRA,4.1
+Georgia,2013,GEO,3.1
+Germany,2013,DEU,3.9
+Ghana,2013,GHA,4.4
+Greece,2013,GRC,4.6
+Hungary,2013,HUN,3.8
+India,2013,IND,4.2
+Indonesia,2013,IDN,4.7
+Iraq,2013,IRQ,4.1
+Israel,2013,ISR,4.3
+Italy,2013,ITA,4.4
+Jamaica,2013,JAM,4.4
+Japan,2013,JPN,4.2
+Jordan,2013,JOR,3.7
+Kazakhstan,2013,KAZ,3.9
+Kenya,2013,KEN,4.3
+Kosovo,2013,OWID_KOS,4.5
+Kyrgyzstan,2013,KGZ,4.6
+Latvia,2013,LVA,4.2
+Lebanon,2013,LBN,4.6
+Liberia,2013,LBR,4.8
+Libya,2013,LBY,3.5
+Lithuania,2013,LTU,4.5
+Luxembourg,2013,LUX,3.2
+Macedonia,2013,MKD,4.1
+Madagascar,2013,MDG,4.2
+Malawi,2013,MWI,4.5
+Malaysia,2013,MYS,3.8
+Maldives,2013,MDV,4.3
+Mexico,2013,MEX,4.7
+Moldova,2013,MDA,4.6
+Mongolia,2013,MNG,4.8
+Morocco,2013,MAR,4.6
+Mozambique,2013,MOZ,4
+Nepal,2013,NPL,4.5
+New Zealand,2013,NZL,3.3
+Nigeria,2013,NGA,4.7
+Norway,2013,NOR,3.1
+Pakistan,2013,PAK,4.6
+Palestine,2013,PSE,3.9
+Papua New Guinea,2013,PNG,4.6
+Paraguay,2013,PRY,4.7
+Peru,2013,PER,4.5
+Philippines,2013,PHL,4.4
+Portugal,2013,PRT,4.6
+Romania,2013,ROU,4.5
+Russia,2013,RUS,4.7
+Rwanda,2013,RWA,2
+Senegal,2013,SEN,4.5
+Serbia,2013,SRB,4.7
+Sierra Leone,2013,SLE,4.1
+Slovakia,2013,SVK,4.2
+Slovenia,2013,SVN,4.2
+Solomon Islands,2013,SLB,4
+South Africa,2013,ZAF,4.4
+South Korea,2013,KOR,3.6
+South Sudan,2013,SSD,3
+Spain,2013,ESP,4.5
+Sri Lanka,2013,LKA,3.7
+Sudan,2013,SDN,2.6
+Switzerland,2013,CHE,2.7
+Taiwan,2013,TWN,3.9
+Tanzania,2013,TZA,4.4
+Thailand,2013,THA,4.1
+Tunisia,2013,TUN,4.4
+Turkey,2013,TUR,4
+Uganda,2013,UGA,4.5
+Ukraine,2013,UKR,4.6
+United Kingdom,2013,GBR,3.7
+United States,2013,USA,4
+Uruguay,2013,URY,3.8
+Vanuatu,2013,VUT,4.4
+Venezuela,2013,VEN,4.6
+Vietnam,2013,VNM,3.7
+Yemen,2013,YEM,3.1
+Zambia,2013,ZMB,4.6
+Zimbabwe,2013,ZWE,4.7
