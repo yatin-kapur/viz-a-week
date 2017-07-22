@@ -68,4 +68,4 @@ data = data[data['Tomatometer %'] != False]
 sns.stripplot(data=data, x='IMDB Rating', y='Tomatometer %')
 plt.title('Top 250 IMDB Rated Movies and Thier Tomatometer %')
 
-plt.savefig('figure_1.png', format='eps', dpi=1200)
+plt.savefig('figure_1.png')
