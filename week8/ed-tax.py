@@ -1,7 +1,6 @@
 # data from http://uwflow.com
 
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 plt.style.use('dark_background')
@@ -19,7 +18,9 @@ edu = edu[['Entity', 'Total Government Expenditure on Education']]
 # merging table into one data set
 data = pd.merge(tax, edu, on='Entity')
 
-sns.lmplot(data=data, x='Total Taxes', y='Total Government Expenditure on Education')
+sns.lmplot(data=data, x='Total Taxes',
+           y='Total Government Expenditure on Education',
+           order=2, ci=None)
 plt.xlabel('Total Taxes as % of GDP')
 plt.ylabel('Total Expenditure on Education as % of GDP')
 plt.title('Expenditure on Education vs. Total Taxes Collected (2013)')
