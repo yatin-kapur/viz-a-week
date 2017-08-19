@@ -54,4 +54,4 @@ plt.ylabel('Average Fantasy Price', fontsize=25)
 plt.title('Average Fantasy Premier League Price for Each Club', fontsize=35, y=1.03)
 
 fig.set_size_inches(13, 13)
-plt.savefig('figure_1.png', format='png', dpi=1200)
+plt.savefig('figure_1.jpeg', format='jpeg', dpi=900)
