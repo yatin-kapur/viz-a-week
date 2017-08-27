@@ -9,6 +9,7 @@ import json
 
 # reading data into life expetancy dataframe
 life_expectancy = pd.read_csv("life-expectancy.csv")
+print(life_expectancy.head())
 
 # deleting unneeded columns
 del life_expectancy['Indicator Name']
